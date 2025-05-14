@@ -398,9 +398,6 @@ def generate_module(bays:int,stacks:int,max_height:int,max_dwell_time:int,mode:i
     module.append(bay)
   return Module(module,max_height)
 
-module=generate_module(5,5,5,6,5)
-print(module)
-
 """# Obtaining a module from a list of stacks
 
 A list containing the module data will be transformed into a module object. The list contains the ground slot index, followed by the ID of the container at cell 0, the time slot of this container, the ID of the container at cell 1, the time slot of this container, etc... If the time slot is 0, this container is special and is not allowed to be moved (these are technical installations). If the ID is 0, not container is at that position.
@@ -448,8 +445,3 @@ def lst_to_container_module(module_lst):
   # Returns a list of modules
   module=[Bay(bays[key],stack_height,ID=f"{key[0]}_{key[1]}") for key in bays]
   return Module(module,stack_height,ID=f"{module_index}")
-
-module=lst_to_container_module(module_lst)
-print(module)
-
-print(module.max_container())
